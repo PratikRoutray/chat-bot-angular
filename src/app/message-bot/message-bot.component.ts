@@ -20,17 +20,8 @@ export class MessageBotComponent {
   @ViewChild('chatHistory') chatHistory;
   constructor(private http: Http) {
          var obj;
-         this.getJSON().subscribe(data => obj=data, error => console.log(error));
+         //this.getJSON().subscribe(data => obj=data, error => console.log(error));
     }
-
-    public getJSON(): Observable<string> {
-         return this.http.get("./games.json")
-                         .map((res:any) => res.json());
-
-     }
-     readData(event:any){
-      const wel = 'Thank you for using this service';
-     }
      handleCommit(event){
 
      }
