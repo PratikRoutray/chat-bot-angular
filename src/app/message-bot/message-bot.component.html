@@ -8,8 +8,8 @@
                   </ul>
                </div>
     <button (click)="readData($event)">click</button>
-<div>
-{{wel}}
+<div #chatHistory></div>
+Enter your name:
+<input type="text" [ngModel]="name" (keyup)="handleCommit($event)"/>
 
-</div>
 </div>
