@@ -1,6 +1,31 @@
 <div>
-<div #chatHistory></div>
-Enter your name:
-<input type="text" [ngModel]="name" (keyup)="handleCommit($event)"/>
+    <table width="100%">
+        <tr>
+            <th width="15%"></th>
+            <th width="35%"></th>
+            <th width="35%"></th>
+            <th width="15%"></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="2">
+                <div #chatHistory style="overflow:scroll;margin-left:38%;margin-right: 38%;"></div>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="right">
+
+                <label>{{systemQuery}}</label>
+            </td>
+            <td style="float:left">
+                <input type="text" [(ngModel)]="userQuery" (keyup)="handleCommit($event)" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
 
 </div>
