@@ -4,7 +4,9 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-
+/**
+ * MessageBotComponent
+ */
 @Component({
   selector: 'message-bot',
   templateUrl: './message-bot.component.html',
@@ -29,3 +31,4 @@ export class MessageBotComponent {
       const wel = 'Thank you for using this service';
      }
 }
+
