@@ -9,7 +9,7 @@
         <tr>
             <td></td>
             <td colspan="2">
-                <div #chatHistory style="overflow:scroll;margin-left:38%;margin-right: 38%;"></div>
+                <div #chatHistory style="overflow-y:scroll;margin-left:35%;margin-right: 35%;width:250px;max-height:200px"></div>
             </td>
             <td>
 
@@ -17,11 +17,7 @@
         </tr>
         <tr>
             <td></td>
-            <td align="right">
-
-                <label>{{systemQuery}}</label>
-            </td>
-            <td style="float:left">
+            <td style="float:right;margin-right: -44px;">
                 <input type="text" [(ngModel)]="userQuery" (keyup)="handleCommit($event)" />
             </td>
             <td></td>

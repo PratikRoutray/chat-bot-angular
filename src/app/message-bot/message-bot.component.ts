@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import { Query } from '../util/query';
 import { Keys } from '../util/keys';
 import { Constants } from '../util/constants';
+import { UserQuery } from '../util/user-query';
 /**
  * MessageBotComponent
  */
@@ -35,15 +36,49 @@ export class MessageBotComponent implements OnInit {
   }
   ngOnInit() {
     this.systemQuery = Query.Basic_Q1;
+    this.createSystemQueryInChatHistory(this.systemQuery);
   }
   handleCommit(event) {
     if (event.keyCode === Keys.RETURN) {
-      let chatElement = document.createElement('div');
-      chatElement.innerHTML = this.userQuery;
-      chatElement.innerText = this.userQuery;
-      this.chatHistory.nativeElement.appendChild(chatElement);
+      this.createUserQueryInChatHistory();
+      switch (this.systemQuery) {
+        case Query.Basic_Q1:
+          this.name = this.userQuery;
+          this.systemQuery = Query.Basic_Q2;
+          let chatSysQuery = 'Hello ' + this.name + ' ,' + Query.Basic_Q2;
+          this.createSystemQueryInChatHistory(chatSysQuery);
+          break;
+        case Query.Basic_Q2:
+          if (this.userQuery === UserQuery.Q1) {
+            //Need to implement all the scenario's here
+
+          } else {
+            this.systemQuery = Query.Resopnse_Ans;
+            this.createSystemQueryInChatHistory(this.systemQuery);
+          }
+          break;
+        default:
+          this.systemQuery = Query.Resopnse_Ans;
+          this.createSystemQueryInChatHistory(this.systemQuery);
+          break;
+
+        // if (this.userQuery === )
+      }
       this.userQuery = Constants.EMPTY_STRING;
     }
-
+  }
+  createSystemQueryInChatHistory(systemQuery) {
+    let chatElementSys = document.createElement('div');
+    chatElementSys.innerHTML = systemQuery;
+    chatElementSys.innerText = systemQuery;
+    chatElementSys.classList.add('rightAlign');
+    this.chatHistory.nativeElement.appendChild(chatElementSys);
+  }
+  createUserQueryInChatHistory() {
+    let chatElement = document.createElement('div');
+    chatElement.innerHTML = this.userQuery;
+    chatElement.innerText = this.userQuery;
+    chatElement.classList.add('leftAlign');
+    this.chatHistory.nativeElement.appendChild(chatElement);
   }
 }

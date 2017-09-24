@@ -7,5 +7,5 @@ export const Query = Object.freeze({
     Cat_Q1: "Funds or Security?",
     TP_Q1: "Any thought about Triparty?(Include,Exclude,Only Triparty)",
     TP_Q2: "Is there some thing else?",
-    Resopnse_Ans: "I din't get you.\n Please modify your question?"
+    Resopnse_Ans: "I din't get you.\n Please modify your question."
 });
